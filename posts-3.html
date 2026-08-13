@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (3/3) · t3b04-sd-room-top5-1</title>
+  <meta name="description" content="t3b04-sd-room-top5-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://sindorim-room-info.link-hub.org/posts-3.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg-color: #0e0d10;
+      --fg-color: #ebebeb;
+      --accent-red: #f43f5e;
+      --accent-green: #10b981;
+      --card-bg: #151419;
+      --border-color: rgba(244, 63, 94, 0.25);
+      --font-grotesk: 'Space Grotesk', sans-serif;
+      --font-sans: 'Noto Sans KR', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--fg-color);
+      font-family: var(--font-sans);
+      line-height: 1.8;
+      padding: 40px;
+    }
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 32px;
+    }
+    .brand {
+      font-family: var(--font-grotesk);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent-red);
+      text-decoration: none;
+      text-shadow: 0 0 8px rgba(244, 63, 94, 0.4);
+    }
+    nav { display: flex; gap: 32px; }
+    nav a {
+      color: #9c9c9f;
+      text-decoration: none;
+      font-family: var(--font-grotesk);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+    }
+    nav a:hover { color: var(--accent-red); }
+    
+    main { margin-bottom: 100px; }
+    .label {
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 48px;
+      letter-spacing: -0.03em;
+    }
+    .intro-text {
+      font-size: 1.15rem;
+      color: #cccccc;
+      font-weight: 300;
+      max-width: 850px;
+      margin-bottom: 80px;
+      text-align: justify;
+    }
+    .intro-text p { margin-bottom: 28px; }
+    
+    .section-title {
+      font-family: var(--font-grotesk);
+      font-size: 1.1rem;
+      color: var(--accent-red);
+      letter-spacing: 0.25em;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 100px;
+    }
+    @media(max-width: 768px) {
+      .grid-section { grid-template-columns: 1fr; }
+    }
+    .essay-card {
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      position: relative;
+    }
+    .essay-card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; width: 6px; height: 100%;
+      background-color: var(--accent-red);
+    }
+    .essay-card h3 {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+    .essay-card p {
+      font-size: 0.95rem;
+      color: #88888b;
+      text-align: justify;
+    }
+
+    /* PBN Feeds */
+    .pbn-feed-section {
+      margin-top: 100px;
+    }
+    .pbn-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .pbn-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .pbn-card:hover {
+      border-color: var(--accent-red);
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.15);
+    }
+    .pbn-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .pbn-meta span {
+      border: 1px solid var(--accent-green);
+      padding: 2px 10px;
+    }
+    .pbn-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .pbn-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .read-more {
+      align-self: flex-start;
+      color: var(--accent-red);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: var(--font-grotesk);
+      letter-spacing: 0.1em;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 48px;
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: #555558;
+    }
+    footer a { color: #555558; text-decoration: none; margin-left: 20px; }
+    footer a:hover { color: var(--accent-red); }
+    
+    @media(max-width: 768px) {
+      header { flex-direction: column; gap: 24px; align-items: flex-start; }
+      h1 { font-size: 2.2rem; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+  <meta property="og:title" content="글 목록 (3/3) · t3b04-sd-room-top5-1">
+  <meta property="og:description" content="t3b04-sd-room-top5-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://sindorim-room-info.link-hub.org/posts-3.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="brand">INFRA.SD</a>
+      <nav>
+        <a href="index.html">NET_GRID</a>
+        <a href="sitemap.xml">SITEMAP</a>
+      </nav>
+    </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 44개 · 3/3 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">신도림 룸싸롱 TOP5</a>
+        <p class="post-item__summary">신도림 지역은 다양한 유흥 시설과 서비스 공간이 밀집되어 있는 특색 있는 상권으로, 지역 내 유흥 문화와 관련 용어에 대한 정확한 이해가 필요한 공간 중 하나입니다. 룸싸롱은 대표적인 성인 유흥업소</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-001.html">신도림 룸싸롱 TOP5 솔직 후기</a>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-002.html">형님이 딱 알려줌, 신도림에서 진짜 &amp;#39;그&amp;#39; 느낌 찾는 법 (후기 주의)</a>
+        <p class="post-item__summary">형님들, 오늘 좀 진지하게 뜬금없는 소리 하나 해볼게요. 제가 예전에 어떤 기밀 문서 조각을 본 적이 있거든요. 1972 년 MK 울트라 청문회 기록 말이에요. 다들 아는 그거 말고, 의도적으로 페</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/t3link-006.html">형님들, 타일러 더든 짠! 하고 나타나기 전, 그 찰나의 순간들… 이거 혹시… ‘그것’ 때문에? ㄷㄷ</a>
+        <p class="post-item__summary">이번에 파이트 클럽 영화를 보다가 또 꽂혀버린 부분이 있는데요. 그거 아세요? 영화 초반에 타일러 더든 (브래드 피트!) 이 짠! 하고 등장하기 전에, 아주 잠깐… 스쳐 지나가는 장면들이 있잖아요.</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <a class="pager__link" href="posts-2.html">2</a>
+      <span class="pager__current">3</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
